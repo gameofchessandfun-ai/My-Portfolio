@@ -68,12 +68,23 @@ const Footer = ({ darkMode }) => {
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="text-2xl font-bold gradient-text mb-4"
+                className="flex items-center space-x-3 mb-4"
               >
-                Portfolio
+                <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center">
+                  <span className="text-white font-bold text-lg">🕉</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-orange-600 bg-clip-text text-transparent">
+                    आदित्य पारीक
+                  </span>
+                  <span className="text-xs text-orange-400">Portfolio</span>
+                </div>
               </motion.div>
               <p className="text-gray-400 mb-6 max-w-md">
-                I design intelligent, scalable, and user-focused machine learning solutions that turn data into impactful digital experiences — blending engineering precision with real-world application.
+                भारतीय परंपरा और आधुनिक तकनीक का संगम। <br />
+                <span className="text-sm opacity-75">
+                  Blending Indian wisdom with cutting-edge AI to create intelligent solutions.
+                </span>
               </p>
               <div className="flex space-x-4">
                 {socialLinks.map((social) => (

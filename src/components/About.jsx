@@ -72,10 +72,18 @@ const About = ({ darkMode }) => {
           <motion.div variants={itemVariants} className="order-1 lg:order-2">
             <motion.h2
               variants={itemVariants}
-              className="text-3xl md:text-4xl font-bold mb-6"
+              className="text-4xl md:text-5xl font-bold mb-4"
             >
-              About <span className="gradient-text">Me</span>
+              <span className="bg-gradient-to-r from-orange-600 via-red-600 to-purple-600 bg-clip-text text-transparent">
+                मेरे बारे में
+              </span>
             </motion.h2>
+            <motion.h3
+              variants={itemVariants}
+              className="text-2xl md:text-3xl font-semibold mb-6"
+            >
+              About <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">Me</span>
+            </motion.h3>
 
             <motion.p
               variants={itemVariants}
