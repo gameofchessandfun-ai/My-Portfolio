@@ -15,29 +15,29 @@
 
   /* Custom scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 12px;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-gray-100 dark:bg-gray-800;
+    @apply bg-gradient-to-b from-orange-50 to-red-50 dark:from-orange-900 dark:to-red-900;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-gradient-to-b from-orange-400 to-red-500 rounded-full;
+    @apply bg-gradient-to-b from-orange-400 via-red-500 to-purple-600 rounded-full border-2 border-white/20;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply from-orange-500 to-red-600;
+    @apply from-orange-500 via-red-600 to-purple-700 shadow-lg;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105;
+    @apply bg-gradient-to-r from-orange-500 via-red-500 to-purple-600 hover:from-orange-600 hover:via-red-600 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105 hover:-translate-y-1;
   }
   
   .btn-secondary {
-    @apply bg-transparent border-2 border-orange-500 text-orange-600 hover:bg-orange-500 hover:text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105;
+    @apply bg-transparent border-2 border-orange-500 text-orange-600 hover:bg-gradient-to-r hover:from-orange-500 hover:to-red-500 hover:text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105 hover:-translate-y-1;
   }
   
   .section-padding {
@@ -49,93 +49,163 @@
   }
   
   .gradient-text {
-    @apply bg-gradient-to-r from-orange-600 via-red-600 to-purple-600 bg-clip-text text-transparent;
+    background: linear-gradient(45deg, #ea580c, #dc2626, #9333ea, #ea580c);
+    background-size: 300% 300%;
+    animation: gradient-shift 3s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
   
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:scale-105;
+    @apply transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 hover:scale-105;
   }
 
   .indian-pattern {
     background-image: 
-      radial-gradient(circle at 25% 25%, rgba(251, 146, 60, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 75% 75%, rgba(239, 68, 68, 0.1) 0%, transparent 50%);
+      radial-gradient(circle at 25% 25%, rgba(251, 146, 60, 0.15) 0%, transparent 60%),
+      radial-gradient(circle at 75% 75%, rgba(239, 68, 68, 0.15) 0%, transparent 60%),
+      radial-gradient(circle at 50% 50%, rgba(147, 51, 234, 0.1) 0%, transparent 70%);
   }
 
   .mandala-bg {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f97316' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3Ccircle cx='30' cy='30' r='12'/%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f97316' fill-opacity='0.08'%3E%3Ccircle cx='40' cy='40' r='6'/%3E%3Ccircle cx='40' cy='40' r='16'/%3E%3Ccircle cx='40' cy='40' r='28'/%3E%3Cpath d='M40 12 L48 28 L40 20 L32 28 Z'/%3E%3Cpath d='M68 40 L52 48 L60 40 L52 32 Z'/%3E%3Cpath d='M40 68 L32 52 L40 60 L48 52 Z'/%3E%3Cpath d='M12 40 L28 32 L20 40 L28 48 Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .lotus-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23dc2626' fill-opacity='0.06'%3E%3Cpath d='M50 20 Q60 30 50 40 Q40 30 50 20 Z'/%3E%3Cpath d='M70 35 Q80 45 70 55 Q60 45 70 35 Z'/%3E%3Cpath d='M50 60 Q60 70 50 80 Q40 70 50 60 Z'/%3E%3Cpath d='M30 35 Q40 45 30 55 Q20 45 30 35 Z'/%3E%3Ccircle cx='50' cy='50' r='8'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
 }
 
 @layer utilities {
   .animate-spin-slow {
-    animation: spin 8s linear infinite;
+    animation: spin 12s linear infinite;
   }
 
   .animate-spin-reverse {
-    animation: spin 10s linear infinite reverse;
+    animation: spin 15s linear infinite reverse;
   }
 
   .animate-float {
-    animation: float 3s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
   }
 
   .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
+    animation: glow 3s ease-in-out infinite alternate;
+  }
+
+  .animate-gradient {
+    animation: gradient-shift 3s ease infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce 3s infinite;
   }
 
   @keyframes float {
     0%, 100% {
-      transform: translateY(0px);
+      transform: translateY(0px) rotate(0deg);
     }
     50% {
-      transform: translateY(-10px);
+      transform: translateY(-15px) rotate(2deg);
     }
   }
 
   @keyframes glow {
     from {
-      box-shadow: 0 0 20px rgba(251, 146, 60, 0.5);
+      box-shadow: 0 0 20px rgba(251, 146, 60, 0.5), 0 0 40px rgba(239, 68, 68, 0.3);
     }
     to {
-      box-shadow: 0 0 30px rgba(239, 68, 68, 0.8);
+      box-shadow: 0 0 40px rgba(239, 68, 68, 0.8), 0 0 60px rgba(147, 51, 234, 0.4);
+    }
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
     }
   }
 
   .text-shadow {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(251, 146, 60, 0.2);
   }
 
   .glass-effect {
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(16px) saturate(180%);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
   }
 
   .dark .glass-effect {
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   }
 }
 
 /* Custom animations for Indian theme */
 @keyframes lotus-bloom {
   0% {
-    transform: scale(0.8) rotate(0deg);
+    transform: scale(0.8) rotate(0deg) translateY(0px);
     opacity: 0.7;
   }
   50% {
-    transform: scale(1.1) rotate(180deg);
+    transform: scale(1.1) rotate(180deg) translateY(-5px);
     opacity: 1;
   }
   100% {
-    transform: scale(1) rotate(360deg);
+    transform: scale(1) rotate(360deg) translateY(0px);
     opacity: 0.8;
   }
 }
 
+@keyframes mandala-pulse {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.05) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
 .lotus-animation {
-  animation: lotus-bloom 4s ease-in-out infinite;
+  animation: lotus-bloom 6s ease-in-out infinite;
+}
+
+.mandala-pulse {
+  animation: mandala-pulse 8s ease-in-out infinite;
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
 }
 
 /* Devanagari font optimization */
@@ -147,12 +217,33 @@
 /* Enhanced focus states */
 input:focus, textarea:focus, button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.3);
+  box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.4), 0 0 20px rgba(239, 68, 68, 0.2);
 }
 
 /* Smooth transitions for all interactive elements */
 * {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-duration: 200ms;
+}
+
+/* Enhanced button animations */
+.btn-animate {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-animate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-animate:hover::before {
+  left: 100%;
 }
